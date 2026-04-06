@@ -70,7 +70,19 @@ class DreamModel(BaseModel):
                 alg=kwargs.get("alg", self.alg),
             )
 
-        generated_ids = output.sequences[0][input_ids.shape[1]:]
+        # Dream implementations may return either a generation object with
+        # `.sequences` or the token tensor directly, depending on the version.
+        if hasattr(output, "sequences"):
+            sequences = output.sequences
+        else:
+            sequences = output
+
+        if not isinstance(sequences, torch.Tensor):
+            raise TypeError(
+                f"Unexpected diffusion_generate return type: {type(output)!r}"
+            )
+
+        generated_ids = sequences[0][input_ids.shape[1]:]
         prediction = self.tokenizer.decode(generated_ids, skip_special_tokens=True)
 
         meta = {

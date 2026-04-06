@@ -216,3 +216,4 @@ external/
 .claude/
 data/
 outputs/
+.codex

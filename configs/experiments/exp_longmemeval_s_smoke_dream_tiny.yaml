@@ -1,0 +1,24 @@
+experiment_name: exp_longmemeval_s_smoke_dream_tiny
+
+model:
+  name: dream
+  model_name_or_path: Dream-org/Dream-v0-Instruct-7B
+  max_new_tokens: 32
+  steps: 32
+  temperature: 0.0
+  top_p: 1.0
+  alg: entropy
+
+memory:
+  name: full_context
+  max_turns: 16
+
+benchmark:
+  name: longmemeval
+  data_path: data/longmemeval_s_cleaned_smoke.json
+  split: s_smoke
+
+runner:
+  seed: 42
+  save_traces: false
+  output_dir: outputs/exp_longmemeval_s_smoke_dream_tiny
