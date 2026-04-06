@@ -1,0 +1,2 @@
+name: full_context
+# max_turns: null  # set an integer to truncate history to the last N turns

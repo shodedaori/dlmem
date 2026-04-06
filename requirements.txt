@@ -1,0 +1,16 @@
+# Core ML
+torch==2.5.1
+transformers==4.46.2
+accelerate>=0.26.0
+
+# Data
+datasets>=2.18.0
+
+# Evaluation (LongMemEval uses GPT-4o judge)
+openai>=1.0.0
+
+# Config
+pyyaml>=6.0
+
+# Utils
+tqdm>=4.66.0

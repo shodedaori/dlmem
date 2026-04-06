@@ -1,0 +1,24 @@
+experiment_name: exp_longmemeval_dream_full
+
+model:
+  name: dream
+  model_name_or_path: Dream-org/Dream-v0-Instruct-7B
+  max_new_tokens: 512
+  steps: 512
+  temperature: 0.2
+  top_p: 0.95
+  alg: entropy
+
+memory:
+  name: full_context
+  # max_turns: null
+
+benchmark:
+  name: longmemeval
+  data_path: data/longmemeval_oracle.json
+  split: oracle
+
+runner:
+  seed: 42
+  save_traces: true
+  output_dir: outputs/exp_longmemeval_dream_full
