@@ -212,3 +212,7 @@ data/*
 outputs/*
 !outputs/.gitkeep
 external/
+
+.claude/
+data/
+outputs/
